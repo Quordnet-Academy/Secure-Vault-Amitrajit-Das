@@ -1,5 +1,4 @@
 const express = require('express')
-const morgan = require('morgan')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config();
 
@@ -18,17 +17,3 @@ mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology
     }
 });
  
-
-
-//setting up view engine
-
-app.set('view engine', 'ejs');
-
-
-// middleware & static files
-app.use(express.static('public'));
-app.use(morgan('dev'));
-app.use((req, res, next) => {
-  res.locals.path = req.path;
-  next();
-});
