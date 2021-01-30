@@ -6,6 +6,13 @@ const dotenv = require('dotenv').config();
 
 const app = express();
 
+// server port
+const PORT = 3000;
+app.listen(PORT || process.env.PORT, () =>
+    console.log(`Server is running on port ${PORT}`)
+);
+ 
+
 // mongodb connection
 
 
@@ -16,4 +23,5 @@ mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology
         console.log("MongoDB connection successful");
     }
 });
- 
+
+
