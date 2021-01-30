@@ -7,8 +7,8 @@ const dotenv = require('dotenv').config();
 const app = express();
 
 // server port
-const PORT = 3000;
-app.listen(PORT || process.env.PORT, () =>
+const PORT = 3000 || process.env.PORT;
+app.listen(PORT, () =>
     console.log(`Server is running on port ${PORT}`)
 );
  
