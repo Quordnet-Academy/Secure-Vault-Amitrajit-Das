@@ -3,7 +3,7 @@ const individual_document = mongoose.Schema({
 
     //Level 2
     individual_document: {
-        adhaar_card_no :  Int32Array,
+        adhaar_card_no :  String,
         driver_license : String,
         pan_card :  String,
         voter_card : String,
