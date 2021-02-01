@@ -15,6 +15,6 @@ const asset = new Schema({
 });
 
 
-const assets = mongoose.model("asset", asset);
+const Asset = mongoose.model("asset", asset);
 
-export default assets;
+export default Asset;

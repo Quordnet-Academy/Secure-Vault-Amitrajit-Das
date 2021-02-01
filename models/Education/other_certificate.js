@@ -14,6 +14,6 @@ const other_certificate = new Schema({
 
 
 
-const other_certificates = mongoose.model("other_certificate", other_certificate);
+const Other_Certificate = mongoose.model("other_certificate", other_certificate);
 
-export default other_certificates;
+export default Other_Certificate;

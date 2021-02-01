@@ -16,6 +16,6 @@ const individual_document = new Schema({
 
 
 
-const individual_documents = mongoose.model("individual_document", individual_document);
+const Individual_Document = mongoose.model("individual_document", individual_document);
 
-export default individual_documents;
+export default Individual_Document;

@@ -14,6 +14,6 @@ const record = new Schema({
 });
 
 
-const records = mongoose.model("record", record);
+const Record = mongoose.model("record", record);
 
-export default records;
+export default Record;

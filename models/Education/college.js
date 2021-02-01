@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-import other_certificates from './other_certificate.js';
+import Other_Certificate from './other_certificate.js';
 
 
 const college = new Schema({
@@ -14,13 +14,13 @@ const college = new Schema({
             semester_sheets : String,
             final_year_projects : String,
             degree_certificate : String,
-            other_certificates : [other_certificates]
+            other_certificates : [Other_Certificate]
         },
 
 });
 
 
 
-const colleges = mongoose.model("college", college);
+const College = mongoose.model("college", college);
 
-export default colleges;
+export default College;

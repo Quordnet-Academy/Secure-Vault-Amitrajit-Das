@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
-import assets from './Finance/asset.js';
+import Asset from './Finance/asset.js';
 
 const individual_finance = new Schema({
 
@@ -8,13 +8,13 @@ const individual_finance = new Schema({
     individual_finance : {
         itr_forms : String,
         bank_transaction : String,
-        assets : [assets], 
+        assets : [Asset], 
         pan_card : String
     },
 
 });
 
 
-const individual_finances = mongoose.model("individual_finance", individual_finance);
+const Individual_Finance = mongoose.model("individual_finance", individual_finance);
 
-export default individual_finances;
+export default Individual_Finance;

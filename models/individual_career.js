@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
-import career_instances from './Career/career_instance.js';
-import non_services from './Career/non_service_pursuits.js';
+import Career_Instance from './Career/career_instance.js';
+import Non_Service from './Career/non_service_pursuits.js';
 
 
 const individual_career = new Schema({
@@ -9,14 +9,14 @@ const individual_career = new Schema({
      
     individual_career:{
         resume : String,
-        career_instances : [career_instances], //Sub Parent from career
-        non_service_persuits : [non_services] //Sub Parent from career
+        career_instances : [Career_Instance],
+        non_service_persuits : [Non_Service] 
     },
 
 });
 
 
 
-const individual_careers = mongoose.model("individual_career", individual_career);
+const Individual_Career = mongoose.model("individual_career", individual_career);
 
-export default individual_careers;
+export default Individual_Career;

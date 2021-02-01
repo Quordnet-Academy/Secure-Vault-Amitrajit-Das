@@ -16,6 +16,6 @@ const career_instance = new Schema({
 
 
 
-const career_instances = mongoose.model("career_instance", career_instance);
+const Career_Instance = mongoose.model("career_instance", career_instance);
 
-export default career_instances;
+export default Career_Instance;

@@ -16,6 +16,6 @@ const school_board = new Schema({
 
 
 
-const school_boards = mongoose.model("school_board", school_board);
+const School_Board = mongoose.model("school_board", school_board);
 
-export default school_boards;
+export default School_Board;

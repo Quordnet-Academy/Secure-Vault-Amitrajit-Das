@@ -12,6 +12,6 @@ const non_service = new Schema({
 
 });
 
-const non_services = mongoose.model("non_service", non_service);
+const Non_Services = mongoose.model("non_service", non_service);
 
-export default non_services;
+export default Non_Services;

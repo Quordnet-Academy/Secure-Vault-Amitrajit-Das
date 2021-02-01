@@ -13,6 +13,6 @@ const finance = new Schema({
 });
 
 
-const finances = mongoose.model("finance", finance);
+const Finance = mongoose.model("finance", finance);
 
-export default finances;
+export default Finances;

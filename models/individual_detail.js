@@ -18,6 +18,6 @@ const individual_detail = new Schema({
 
 
 
-const individual_details = mongoose.model("individual_detail", individual_detail);
+const Individual_Detail = mongoose.model("individual_detail", individual_detail);
 
-export default individual_details;
+export default Individual_Detail;
