@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 import school_boards from './Education/school_board.js';
 import college from './Education/college,js';
 
 
 
-const individual_education = new mongoose.Schema({
+const individual_education = new Schema({
    
     
     individual_education: {

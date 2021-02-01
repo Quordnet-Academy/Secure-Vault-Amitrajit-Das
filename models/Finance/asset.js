@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-const asset = new mongoose.Schema({
+const asset = new Schema({
 
     
     asset : {

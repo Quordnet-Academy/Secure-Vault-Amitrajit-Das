@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-const non_service = new mongoose.Schema({
+const non_service = new Schema({
 
     
     non_service :{

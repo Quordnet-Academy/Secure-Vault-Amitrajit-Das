@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
-import finance from './finance.js'
+const Schema = mongoose.Schema;
+import finances from './finance.js'
 
 
-const career_instance = new mongoose.Schema({
+const career_instance = new Schema({
 
     
     career_instances :{

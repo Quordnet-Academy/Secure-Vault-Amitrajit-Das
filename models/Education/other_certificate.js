@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-
-const other_certificate = new mongoose.Schema({
+const other_certificate = new Schema({
 
         
         other_certificate : {

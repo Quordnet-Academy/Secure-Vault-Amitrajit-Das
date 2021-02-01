@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 import records from './record.js';
-const vaccination_record = new mongoose.Schema({
+
+const vaccination_record = new Schema({
 
     
     vaccination_record : {
@@ -10,6 +12,6 @@ const vaccination_record = new mongoose.Schema({
 });
 
 
-const vaccination_records = mongoose.model("vaccine", vaccine);
+const vaccination_records = mongoose.model("vaccination_record", vaccination_record);
 
 export default vaccination_records;

@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 import individual_details from './individual_detail.js';
 import individual_documents from './individual_document.js';
 import individual_educations from './individual_education.js';
@@ -6,7 +7,7 @@ import individual_careers from './individual_career.js';
 import individual_finances from './individual_finance.js';
 import individual_medicals from './individual_medical.js'
 
-const individual = new mongoose.Schema({
+const individual = new Schema({
     
     
     individual : {

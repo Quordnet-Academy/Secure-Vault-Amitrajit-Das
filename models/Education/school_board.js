@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-
-const school_board = new mongoose.Schema({
+const school_board = new Schema({
 
     
     school_board : {

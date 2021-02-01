@@ -1,8 +1,10 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+
 import other_certificates from './other_certificate.js';
 
 
-const college = new mongoose.Schema({
+const college = new Schema({
 
         
         college : {

@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 import assets from './Finance/asset.js';
 
-const individual_finance = new mongoose.Schema({
+const individual_finance = new Schema({
 
     
     individual_finance : {

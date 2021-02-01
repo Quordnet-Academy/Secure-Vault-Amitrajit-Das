@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 import vaccines from './Medical/vaccination_record.js';
 
-const individual_medical = new mongoose.Schema({
+const individual_medical = new Schema({
 
     
     individual_medical : {

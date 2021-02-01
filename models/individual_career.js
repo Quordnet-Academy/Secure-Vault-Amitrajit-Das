@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 import career_instances from './Career/career_instance.js';
 import non_services from './Career/non_service_pursuits.js';
 
 
-const individual_career = new mongoose.Schema({
+const individual_career = new Schema({
 
-    //Lvl 2  
+     
     individual_career:{
         resume : String,
         career_instances : [career_instances], //Sub Parent from career

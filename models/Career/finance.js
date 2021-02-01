@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-const finance = new mongoose.Schema({
+const finance = new Schema({
 
     
     finance : {

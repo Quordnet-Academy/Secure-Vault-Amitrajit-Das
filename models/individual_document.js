@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
-const individual_document = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const individual_document = new Schema({
 
    
     individual_document: {
