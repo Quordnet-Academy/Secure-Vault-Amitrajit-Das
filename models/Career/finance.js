@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const finance = mongoose.Schema({
+const finance = new mongoose.Schema({
 
-    //Lvl 4
+    
     finance : {
         in_hand : String,
         ctc : String,

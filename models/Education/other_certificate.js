@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 
-const other_certificate = mongoose.Schema({
+const other_certificate = new mongoose.Schema({
 
-        //Lvl 4
+        
         other_certificate : {
             Academy : String,
             Sports : Array ,

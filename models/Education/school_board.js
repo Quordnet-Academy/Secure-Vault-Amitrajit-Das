@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 
-const school_board = mongoose.Schema({
+const school_board = new mongoose.Schema({
 
-    //Lvl 3
+    
     school_board : {
         marks : String,
         grade : String,

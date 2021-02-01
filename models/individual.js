@@ -6,9 +6,9 @@ import individual_careers from './individual_career.js';
 import individual_finances from './individual_finance.js';
 import individual_medicals from './individual_medical.js'
 
-const individual = mongoose.Schema({
+const individual = new mongoose.Schema({
     
-    //Lvl 1
+    
     individual : {
         individual_details : [individual_details],
         individual_documents : [individual_documents],

@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const asset = mongoose.Schema({
+const asset = new mongoose.Schema({
 
-    //Level 3
+    
     asset : {
         commodities : String,
         cryptocurrencies : String,

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-const individual_document = mongoose.Schema({
+const individual_document = new mongoose.Schema({
 
-    //Level 2
+   
     individual_document: {
         adhaar_card_no :  String,
         driver_license : String,

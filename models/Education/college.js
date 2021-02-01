@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 import other_certificates from './other_certificate.js';
 
 
-const college = mongoose.Schema({
+const college = new mongoose.Schema({
 
-        //Lvl 3
+        
         college : {
             degree : String,
             course :String,

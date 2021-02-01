@@ -4,9 +4,9 @@ import college from './Education/college,js';
 
 
 
-const Education = mongoose.Schema({
+const individual_education = new mongoose.Schema({
    
-    //Lvl 2
+    
     individual_education: {
         school_boards : [school_boards],
         college : [college] 

@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 import records from './record.js';
-const vaccination_record = mongoose.Schema({
+const vaccination_record = new mongoose.Schema({
 
-    //Level 3
+    
     vaccination_record : {
-        records : [records] //child
+        records : [records]
     },
 
 });

@@ -1,17 +1,17 @@
 import mongoose from 'mongoose';
 import vaccines from './Medical/vaccination_record.js';
 
-const Individual_Medical = mongoose.Schema({
+const individual_medical = new mongoose.Schema({
 
-    //Level 2
-    Individual_Medical :{
-        vaccination_records : [vaccines], //Sub parent
+    
+    individual_medical : {
+        vaccination_records : [vaccines],
         medical_illness_long_term : String
     },
 
 });
 
 
-const Individual_Medicals = mongoose.model("Individual_Medical", Individual_Medical);
+const individual_medicals = mongoose.model("individual_medical", individual_medical);
 
-export default Individual_Medicals;
+export default individual_medicals;

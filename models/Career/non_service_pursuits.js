@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const non_service = mongoose.Schema({
+const non_service = new mongoose.Schema({
 
-    //Lvl 3
+    
     non_service :{
         freelancing : String,
         bussiness : String,

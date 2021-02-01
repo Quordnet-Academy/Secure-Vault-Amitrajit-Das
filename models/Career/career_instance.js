@@ -2,13 +2,13 @@ import mongoose from 'mongoose';
 import finance from './finance.js'
 
 
-const career_instance = mongoose.Schema({
+const career_instance = new mongoose.Schema({
 
-    //Lvl 3
+    
     career_instances :{
         company_name : String,
         company_post : String,
-        finance : [finances] //Child
+        finance : [finances] 
     },
 
 });

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-const individual_detail = mongoose.Schema({
+const individual_detail = new mongoose.Schema({
 
     individual_detail: {
         name: String,

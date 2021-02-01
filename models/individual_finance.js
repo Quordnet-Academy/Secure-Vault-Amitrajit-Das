@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 import assets from './Finance/asset.js';
 
-const individual_finance = mongoose.Schema({
+const individual_finance = new mongoose.Schema({
 
-    //Level 2
+    
     individual_finance : {
         itr_forms : String,
         bank_transaction : String,
-        assets : [assets], //Sub Parent
+        assets : [assets], 
         pan_card : String
     },
 

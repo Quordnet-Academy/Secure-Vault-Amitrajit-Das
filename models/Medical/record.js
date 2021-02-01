@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const record = mongoose.Schema({
+const record = new mongoose.Schema({
 
-    //Level 4
+    
     record : {
         vaccine_name : Array,
         vaccine_date : Array,
