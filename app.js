@@ -1,12 +1,28 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const dotenv = require('dotenv').config();
+import express from "express";
+import morgan from "morgan";
+import userRouter from "./routes/UserRouter";
+import homeRouter from "./routes/HomeRouter";
+import dotenv from "dotenv";
 
 // express
 
 const app = express();
+app.use(express.json());
 
-// server port
+//  Loads .env file contents into | process.env
+dotenv.config();
+
+
+//middleware
+
+app.use(morgan());
+
+// routes
+
+app.use('/home', homeRouter);
+app.use('/user', userRouter);
+
+// server port 
 const PORT = 3000 || process.env.PORT;
 app.listen(PORT, () =>
     console.log(`Server is running on port ${PORT}`)
