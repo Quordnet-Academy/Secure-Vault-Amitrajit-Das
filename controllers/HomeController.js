@@ -1,5 +1,9 @@
-const home = (req, res) => {
+const home_get = (req, res) => {
   res.send("Welcome to Secure Vault");
 };
 
-export { home };
+const home_post = (req, res) => {
+  res.send("Welcome to Secure Vault");
+};
+
+export { home_get, home_post };
