@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
-import userRouter from "./routes/UserRouter";
-import homeRouter from "./routes/HomeRouter";
+import userRouter from "./routes/UserRoutes";
+import homeRouter from "./routes/HomeRoutes";
 import dotenv from "dotenv";
 
 // express
