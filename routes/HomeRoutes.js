@@ -1,9 +1,7 @@
-import { Router } from 'express';
-import vaultController from '../controllers/vaultController';
+import express from "express";
+import { home } from "../controller/homeController.js";
+const router = express.Router();
 
-const router = Router();
-
-router.get('/home', vaultController.home_get);
-router.post('/home', vaultController.home_post);
+router.get("/", home);
 
 export default router;
