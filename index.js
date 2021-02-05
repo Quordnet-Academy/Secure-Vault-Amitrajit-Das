@@ -1,8 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
-/*import morgan from 'morgan'
-import userRouter from './routes/UserRoutes'
-import homeRouter from './routes/HomeRoutes'*/
+import morgan from 'morgan'
+import userRouter from './routes/userRouter.js'
+import homeRouter from './routes/homeRouter.js'
 import dotenv from 'dotenv'
 
 // express
@@ -15,12 +15,12 @@ dotenv.config();
 
 //middleware
 
-//app.use(morgan());//
+app.use(morgan());
 
 // routes
 
-/*app.use('/home', homeRouter);
-app.use('/user', userRouter);*/
+app.use('/', homeRouter);
+app.use('/user', userRouter);
 
 // server port 
 const PORT = 3000 || process.env.PORT;
