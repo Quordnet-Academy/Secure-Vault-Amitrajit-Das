@@ -1,25 +1,27 @@
 import { UserModel } from '../models/user.js';
 
 export const userGet = async (req, res) => {
-
-    const newRecord = new UserModel(req.body);
-
+        
     try {
-        await newRecord.save();
-        res.status(201).send(newRecord)
-    } catch (err) {
-        res.status(400).send(err);
-    }
+        const UserModel = await UserModel.find();
+        return res.json(UserModel);
+
+      } catch (err) {
+        res.status(404).send(err);
+      } 
+    
 };
 
 export const userPost = async (req, res) => {
 
-    try {
-        const UserModels = await UserModel.find();
-        return res.json(UserModels);
+    const Record = new UserModel(req.body);
 
-      } catch (err) {
-        res.status(404).send(err);
-      }
+    try {
+        await Record.save();
+        res.status(201).json(Record)
+    } catch (err) {
+        res.status(400).json({message: "Record Not Found"});
+    }
 };
+
 
