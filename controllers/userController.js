@@ -3,7 +3,7 @@ import { UserModel } from '../models/user.js';
 export const userGet = async (req, res) => {
         
     try {
-        const UserModel = await UserModel.find();
+        const UserModel = await UserModel.find({});
         return res.json(UserModel);
 
       } catch (err) {
