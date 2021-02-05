@@ -2,6 +2,7 @@
   "name": "securevault",
   "version": "0.0.1",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +16,9 @@
     "express": "^4.17.1",
     "mongoose": "^5.11.13",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-plugin-react": "^7.22.0"
   }
 }
