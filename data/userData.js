@@ -1,4 +1,4 @@
-export const userData = {
+const userData = {
   userDetails: [
     {
       name: "amitrajit",
@@ -110,3 +110,5 @@ export const userData = {
     },
   },
 };
+
+export default userData;
