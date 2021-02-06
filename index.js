@@ -1,8 +1,14 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import morgan from 'morgan'
-import userRouter from './routes/userRouter.js'
+// import userRouter from './routes/userRouter.js'
 import homeRouter from './routes/homeRouter.js'
+import userCareerRoutes from './routes/userCareerRouter.js'
+import userDetailRoutes from './routes/userDetailRouter.js'
+import userDocumentRoutes from './routes/userDocumentRouter.js'
+import userEducationRoutes from './routes/userEducationRouter.js'
+import userFinanceRoutes from './routes/userFinanceRouter.js'
+import userMedicalRoutes from './routes/userMedicalRouter.js'
 import dotenv from 'dotenv'
 
 // express
@@ -20,7 +26,24 @@ app.use(morgan());
 // routes
 
 app.use('/', homeRouter);
-app.use('/user', userRouter);
+app.use(userCareerRoutes);
+app.use(userDetailRoutes);
+app.use(userDocumentRoutes);
+app.use(userEducationRoutes);
+app.use(userFinanceRoutes);
+app.use(userMedicalRoutes);
+// app.use('/user', userRouter);
+
+
+
+
+
+
+
+
+
+
+
 
 // server port 
 const PORT = 3000 || process.env.PORT;
