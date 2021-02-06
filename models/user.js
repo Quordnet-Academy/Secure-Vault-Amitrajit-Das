@@ -5,7 +5,7 @@ import { documentsSchema } from "./document.js";
 import { educationSchema } from "./education.js";
 import { careerSchema } from "./career.js";
 import { financeSchema } from "./finance.js";
-import { medicalSchema } from "./medicine.js";
+import { medicalSchema } from "./medical.js";
 
 const Schema = mongoose.Schema;
 
