@@ -38,13 +38,6 @@ app.use(userMedicalRoutes);
 
 
 
-
-
-
-
-
-
-
 // server port 
 const PORT = 3000 || process.env.PORT;
 app.listen(PORT, () =>

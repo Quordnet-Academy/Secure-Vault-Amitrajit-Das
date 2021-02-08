@@ -17,7 +17,7 @@ export const postUserDetail = async (req, res) => {
     try {
         
         const userDetail = new UserDetail(req.body);
-        const newUserDetail = await uerDetail.save();
+        const newUserDetail = await userDetail.save();
         res.status(201).json(newUserDetail);
 
     } catch (err) {
