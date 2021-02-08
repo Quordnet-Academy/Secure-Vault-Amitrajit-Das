@@ -25,4 +25,29 @@ export const postUserDocument = async (req, res) => {
     }
 };
 
+export const putUserDocument = async (req, res) => {
+  try {
+    const updatedUserDocument = await UserDocument.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
+    
+    if(!updatedUserDocument){
+        return res.status(404).json({message: err.message})
+    }
 
+    res.status(200).json(updatedUserDocument);
+  } catch (error) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+export const deleteUserDocument = async (req, res) => {
+  try {
+    const deletedUserDocument = await UserDocument.findByIdAndDelete(req.params.id);
+
+    if(!deletedUserDocument){
+        res.status(404).json(deletedUserDocument);
+    }
+    res.status(200).json(deletedUserDocument);
+  } catch (error) {
+    res.status(500).json({ message: err.message });
+  }
+};

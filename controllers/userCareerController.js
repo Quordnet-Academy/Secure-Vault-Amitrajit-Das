@@ -12,6 +12,7 @@ export const getUserCareer = async (req, res) => {
     
 };
 
+
 export const postUserCareer = async (req, res) => {
 
     try {
@@ -26,3 +27,32 @@ export const postUserCareer = async (req, res) => {
 };
 
 
+
+export const putUserCareer = async (req, res) => {
+  try {
+    const updatedUserCareer = await UserCareer.findOneAndUpdate(req.params.id,req.body, { new : true});
+    
+    if(!updatedUserCareer){
+        return res.status(404).json({message: err.message})
+    }
+
+    res.status(200).json(updatedUserCareer);
+  } catch (error) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+
+
+export const deleteUserCareer = async (req, res) => {
+  try {
+    const deletedUserCareer = await UserCareer.findByIdAndDelete(req.params.id);
+
+    if(!deletedUserCareer){
+        res.status(404).json(deletedUserCareer);
+    }
+    res.status(200).json(deletedUserCareer);
+  } catch (error) {
+    res.status(500).json({ message: err.message });
+  }
+};

@@ -26,3 +26,31 @@ export const postUserDetail = async (req, res) => {
 };
 
 
+export const putUserDetail = async (req, res) => {
+  try {
+    const updatedUserDetail = await UserDetail.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
+    
+    if(!updatedUserDetail){
+        return res.status(404).json({message: err.message})
+    }
+
+    res.status(200).json(updatedUserDetail);
+  } catch (error) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+
+export const deleteUserDetail = async (req, res) => {
+  try {
+    const deletedUserDetail = await UserDetail.findByIdAndDelete(req.params.id);
+
+    if(!deletedUserDetail){
+        res.status(404).json(deletedUserDetail);
+    }
+    res.status(200).json(deletedUserDetail);
+  } catch (error) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
