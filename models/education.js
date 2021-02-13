@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 const Schema = mongoose.Schema;
 
 const otherCertificate = new Schema({
@@ -31,6 +32,24 @@ const classRepresentativeBoardsSchema = Schema({
 const educationSchema = Schema({
   class_representative_boards: [classRepresentativeBoardsSchema],
   college: [collegeSchema],
+  password: {
+    type: String,
+    required: true,
+  },
+});
+
+// hashing before saving to DB
+
+educationSchema.pre("save", async function (next) {
+
+  
+  if (this.isModified('password')){
+
+    this.password = await bcrypt.hash(this.password, 8);
+  }
+  
+  next();
+
 });
 
 const UserEducation = mongoose.model("Education", educationSchema);

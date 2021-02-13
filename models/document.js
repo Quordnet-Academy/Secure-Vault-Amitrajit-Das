@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 const Schema = mongoose.Schema;
 
 //@ pan card details
@@ -12,7 +13,26 @@ const documentsSchema = Schema({
   panCard: [panCard],
   voter_auth: String,
   passport: String,
+  password: {
+    type: String,
+    required: true,
+  },
 });
+
+// hashing before saving to DB
+
+documentsSchema.pre("save", async function (next) {
+
+  
+  if (this.isModified('password')){
+
+    this.password = await bcrypt.hash(this.password, 8);
+  }
+  
+  next();
+
+});
+
 
 const UserDocument = mongoose.model("Document", documentsSchema);
 export { documentsSchema, UserDocument };
