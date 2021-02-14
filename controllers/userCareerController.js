@@ -1,4 +1,5 @@
 import { UserCareer } from '../models/career.js';
+import bcrypt from "bcrypt";
 
 export const getUserCareer = async (req, res) => {
         
@@ -26,11 +27,28 @@ export const postUserCareer = async (req, res) => {
     }
 };
 
+export const postUserCareerById = async (req, res) => {
+  const { password } = req.body;
+
+  const userCareer = await UserCareer.findOne({ _id: req.params.id });
+  if (userCareer) {
+    const hashedPassword = userCareer.password;
+    const isMatched = await bcrypt.compare(password, hashedPassword);
+    if (isMatched) {
+      res.status(200).json(userCareer);
+    } else {
+      res.status(401).json({ message: "password didn't match" });
+    }
+  } else {
+    res.status(404).json({ message: "NOT FOUND" });
+  }
+};
+
 
 
 export const putUserCareer = async (req, res) => {
   try {
-    const updatedUserCareer = await UserCareer.findOneAndUpdate(req.params.id,req.body, { new : true});
+    const updatedUserCareer = await UserCareer.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
     
     if(!updatedUserCareer){
         return res.status(404).json({message: err.message})
