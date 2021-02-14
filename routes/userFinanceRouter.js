@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getUserFinance, postUserFinance, putUserFinance, deleteUserFinance } from "../controllers/userFinanceController.js";
+import { getUserFinance, postUserFinance, postUserFinanceById, putUserFinance, deleteUserFinance } from "../controllers/userFinanceController.js";
 
 const router = express.Router();
 
@@ -8,7 +8,8 @@ const router = express.Router();
 // Career Routes
 router.get("/userFinance", getUserFinance);
 router.post("/userFinance", postUserFinance);
-router.post("/userFinance/:id", putUserFinance);
-router.post("/userFinance/:id", deleteUserFinance);
+router.post("/userFinance/:id", postUserFinanceById);
+router.put("/userFinance/:id", putUserFinance);
+router.delete("/userFinance/:id", deleteUserFinance);
 
 export default router;
