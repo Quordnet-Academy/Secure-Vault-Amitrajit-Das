@@ -30,6 +30,9 @@ const careerSchema = Schema({
   },
 });
 
+
+careerSchema.statics.findByCredentials
+
 // hashing before saving to DB
 
 careerSchema.pre("save", async function (next) {
