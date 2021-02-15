@@ -37,9 +37,15 @@ export const postUserMedicalPassword = async (req, res) => {
 
 
 export const putUserMedical = async (req, res) => {
+  const updates = Object.keys(req.body);
+
   try {
-    const updatedUserMedical = await UserMedical.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
-    
+    const updatedUserMedical = await UserMedical.findById(req.params.id);
+
+    updates.forEach((update) => updatedUserMedical[update] = req.body[update])
+
+    await updatedUserMedical.save();
+
     if(!updatedUserMedical){
         return res.status(404).json({message: err.message})
     }

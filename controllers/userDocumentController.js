@@ -36,9 +36,15 @@ export const postUserDocumentPassword = async (req, res) => {
 };
 
 export const putUserDocument = async (req, res) => {
+   const updates = Object.keys(req.body);
+
   try {
-    const updatedUserDocument = await UserDocument.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
-    
+    const updatedUserDocument = await UserDocument.findById(req.params.id);
+
+    updates.forEach((update) => updatedUserDocument[update] = req.body[update])
+
+    await updatedUUserDocument.save();
+
     if(!updatedUserDocument){
         return res.status(404).json({message: err.message})
     }

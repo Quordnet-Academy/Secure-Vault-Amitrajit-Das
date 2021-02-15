@@ -43,8 +43,15 @@ export const postUserCareerPassword = async (req, res) => {
 
 
 export const putUserCareer = async (req, res) => {
+
+  const updates = Object.keys(req.body);
+
   try {
-    const updatedUserCareer = await UserCareer.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
+    const updatedUserCareer = await UserCareer.findById(req.params.id);
+
+    updates.forEach((update) => updatedUserCareer[update] = req.body[update])
+
+    await updatedUserCareer.save();
     
     if(!updatedUserCareer){
         return res.status(404).json({message: err.message})

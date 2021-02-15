@@ -37,8 +37,15 @@ try {
 
 
 export const putUserDetail = async (req, res) => {
+  const updates = Object.keys(req.body);
+
   try {
-    const updatedUserDetail = await UserDetail.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
+    const updatedUserDetail = await UserDetail.findById(req.params.id);
+
+    updates.forEach((update) => updatedUserDetail[update] = req.body[update])
+
+    await updatedUserDetail.save();
+    
     
     if(!updatedUserDetail){
         return res.status(404).json({message: err.message})

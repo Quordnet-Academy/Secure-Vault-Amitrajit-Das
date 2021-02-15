@@ -36,8 +36,15 @@ export const postUserEducationPassword = async (req, res) => {
 };
 
 export const patchUserEducation = async (req, res) => {
+ const updates = Object.keys(req.body);
+
   try {
-    const updatedUserEducation = await UserEducation.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
+    const updatedUserEducation = await UserEducation.findById(req.params.id);
+
+    updates.forEach((update) => updatedUserEducation[update] = req.body[update])
+
+    await updatedUserEducation.save();
+    
     
     if(!updatedUserEducation){
         return res.status(404).json({message: err.message})

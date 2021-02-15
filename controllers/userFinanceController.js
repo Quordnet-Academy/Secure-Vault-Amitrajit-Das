@@ -36,9 +36,15 @@ export const postUserFinancePassword = async (req, res) => {
 };
 
 export const putUserFinance = async (req, res) => {
+ const updates = Object.keys(req.body);
+
   try {
-    const updatedUserFinance = await UserFinance.findOneAndUpdate(req.params.id,req.body, { new : true, runValidators : true});
-    
+    const updatedUserFinance = await UserFinance.findById(req.params.id);
+
+    updates.forEach((update) => updatedUserFinance[update] = req.body[update])
+
+    await updatedUserFinance.save();
+
     if(!updatedUserFinance){
         return res.status(404).json({message: err.message})
     }
