@@ -22,6 +22,27 @@ const medicalSchema = Schema({
   },
 });
 
+// password match checker
+
+medicalSchema.statics.findByCredentials = async (password) => {
+  const medical= await UserMedical.findOne({ password })
+
+  if(!medical) {
+    throw new Error('Password not found!');
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if(!isMatch) {
+    throw new Error('ERROR');
+  }
+
+  return medical;
+
+}
+
+
+
 // hashing before saving to DB
 
 medicalSchema.pre("save", async function (next) {

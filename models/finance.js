@@ -28,6 +28,25 @@ const financeSchema = Schema({
   },
 });
 
+// password match checker
+
+financeSchema.statics.findByCredentials = async (password) => {
+  const finance= await UserFinance.findOne({ password })
+
+  if(!finance) {
+    throw new Error('Password not found!');
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if(!isMatch) {
+    throw new Error('ERROR');
+  }
+
+  return finance;
+
+}
+
 // hashing before saving to DB
 
 financeSchema.pre("save", async function (next) {

@@ -16,6 +16,26 @@ const detailsSchema = new Schema({
   },
 });
 
+// password match checker
+
+detailsSchema.statics.findByCredentials = async (password) => {
+  const details = await UserDetail.findOne({ password })
+
+  if(!details) {
+    throw new Error('Password not found!');
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if(!isMatch) {
+    throw new Error('ERROR');
+  }
+
+  return details;
+
+}
+
+
 
 // hashing before saving to DB
 

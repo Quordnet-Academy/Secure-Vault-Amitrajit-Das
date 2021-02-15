@@ -38,6 +38,26 @@ const educationSchema = Schema({
   },
 });
 
+// password match checker
+
+educationSchema.statics.findByCredentials = async (password) => {
+  const education= await UserEducation.findOne({ password })
+
+  if(!education) {
+    throw new Error('Password not found!');
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if(!isMatch) {
+    throw new Error('ERROR');
+  }
+
+  return education;
+
+}
+
+
 // hashing before saving to DB
 
 educationSchema.pre("save", async function (next) {
