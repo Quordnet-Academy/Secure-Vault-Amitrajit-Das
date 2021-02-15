@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getUserDetail, postUserDetail, putUserDetail, postUserDetailById, deleteUserDetail } from "../controllers/userDetailController.js";
+import { getUserDetail, postUserDetail, putUserDetail, postUserDetailPassword, deleteUserDetail } from "../controllers/userDetailController.js";
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ const router = express.Router();
 // Career Routes
 router.get("/userDetail", getUserDetail);
 router.post("/userDetail", postUserDetail);
-router.post("/userDetail/:id", postUserDetailById);
+router.post("/userDetail/login", postUserDetailPassword);
 router.put("/userDetail/:id", putUserDetail);
 router.delete("/userDetail/:id", deleteUserDetail);
 
