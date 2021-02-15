@@ -39,7 +39,7 @@ careerSchema.statics.findByCredentials = async (password) => {
     throw new Error('Password not found!');
   }
 
-  const isMatch = await bcrypt.compare(password, user.password);
+  const isMatch = await bcrypt.compare(password, career.password);
 
   if(!isMatch) {
     throw new Error('ERROR');
