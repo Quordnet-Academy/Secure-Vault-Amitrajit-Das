@@ -26,20 +26,12 @@ export const postUserMedical = async (req, res) => {
     }
 };
 
-export const postUserMedicalById = async (req, res) => {
-  const { password } = req.body;
-
-  const userMedical = await UserMedical.findOne({ _id: req.params.id });
-  if (userMedical) {
-    const hashedPassword = userMedical.password;
-    const isMatched = await bcrypt.compare(password, hashedPassword);
-    if (isMatched) {
-      res.status(200).json(userMedical);
-    } else {
-      res.status(401).json({ message: "password didn't match" });
-    }
-  } else {
-    res.status(404).json({ message: "NOT FOUND" });
+export const postUserMedicalPassword = async (req, res) => {
+  try {
+    const medical = await UserMedical.findByCredentials(req.body.password)
+    res.send(medical);
+  } catch (err) {
+    res.status(400).json({message: err.message});
   }
 };
 

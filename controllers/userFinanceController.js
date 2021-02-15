@@ -26,20 +26,12 @@ export const postUserFinance = async (req, res) => {
     }
 };
 
-export const postUserFinanceById = async (req, res) => {
-  const { password } = req.body;
-
-  const userFinance = await UserFinance.findOne({ _id: req.params.id });
-  if (userFinance) {
-    const hashedPassword = userFinance.password;
-    const isMatched = await bcrypt.compare(password, hashedPassword);
-    if (isMatched) {
-      res.status(200).json(userFinance);
-    } else {
-      res.status(401).json({ message: "password didn't match" });
-    }
-  } else {
-    res.status(404).json({ message: "NOT FOUND" });
+export const postUserFinancePassword = async (req, res) => {
+  try {
+    const finance = await UserFinance.findByCredentials(req.body.password)
+    res.send(finance);
+  } catch (err) {
+    res.status(400).json({message: err.message});
   }
 };
 
