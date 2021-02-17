@@ -29,18 +29,24 @@ export const postUserCareer = async (req, res) => {
 
 // to check password
 
-export const postUserCareerPassword = async (req, res) => {
+export const postUserCareerById = async (req, res) => {
 
-  try {
-    const career = await UserCareer.findByCredentials(req.body.password)
-    res.send(career);
-  } catch (err) {
-    res.status(400).json({message: err.message});
+  const { password } = req.body;
+
+  const userCareer = await UserCareer.findOne({ _id: req.params.id });
+  
+  if (userCareer) {
+    const hashedPassword = userCareer.password;
+    const checkCareerPassword = await bcrypt.compare(password, hashedPassword);
+    if (checkCareerPassword) {
+      res.status(200).json(userCareer);
+    } else {
+      res.status(401).json({ message: "password does not match" });
+    }
+  } else {
+    res.status(404).json({ message: "user career details does not exist" });
   }
-
 };
-
-
 
 export const putUserCareer = async (req, res) => {
 

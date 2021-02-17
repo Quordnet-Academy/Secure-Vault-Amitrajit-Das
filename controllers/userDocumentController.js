@@ -26,12 +26,24 @@ export const postUserDocument = async (req, res) => {
     }
 };
 
-export const postUserDocumentPassword = async (req, res) => {
-  try {
-    const document = await UserDocument.findByCredentials(req.body.password)
-    res.send(document);
-  } catch (err) {
-    res.status(400).json({message: err.message});
+export const postUserDocumentById = async (req, res) => {
+
+  const { password } = req.body;
+
+  const userDocuments = await UserDocument.findOne({});
+  if (userDocuments) {
+    const hashedPassword = userDocuments.password;
+    const checkDocumentPassword = await bcrypt.compare(
+      password,
+      hashedPassword
+    );
+    if (checkDocumentPassword) {
+      res.status(200).json(userDocuments);
+    } else {
+      res.status(401).json({ message: "password does not match" });
+    }
+  } else {
+    res.status(404).json({ message: "user documents does not exist" });
   }
 };
 
