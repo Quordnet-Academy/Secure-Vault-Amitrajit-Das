@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import validator from 'validator';
 const Schema = mongoose.Schema;
@@ -32,9 +33,27 @@ const userSchema = new Schema({
                 throw new Error('Password cannot contain "password"')
             }
         }
-    }
+    },
+
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }]
 
 });
+
+
+userSchema.methods.generateAuthToken = async function () {
+    const user = this;
+    const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET);
+
+    user.tokens = user.tokens.concat({ token })
+    await user.save();
+
+    return token;
+}
 
 // Hash the plain text password before saving
 userSchema.pre('save', async function (next) {
