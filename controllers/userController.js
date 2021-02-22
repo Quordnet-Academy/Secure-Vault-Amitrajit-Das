@@ -1,27 +1,11 @@
-// import { UserModel } from '../models/user.js';
+import { User } from '../models/user.js';
 
-// export const userGet = async (req, res) => {
-        
-//     try {
-//         const UserModel = await UserModel.find({});
-//         res.status(201).json(UserModel);
+export const postUser = async (req, res) => {
 
-//       } catch (err) {
-//         res.status(404).json({message: err.message});
-//       } 
-    
-// };
-
-// export const userPost = async (req, res) => {
-
-//     const Record = new UserModel(req.body);
-
-//     try {
-//         await Record.save();
-//         res.status(201).json(Record)
-//     } catch (err) {
-//         res.status(400).json({message: err.message});
-//     }
-// };
-
-
+    try {
+        const user = await User.findByCredentials(req.body.email, req.body.password)
+        res.send(user)
+    } catch (e) {
+        res.status(400).send()
+    }
+};
