@@ -30,24 +30,7 @@ const careerSchema = Schema({
   },
 });
 
-// password match checker
 
-careerSchema.statics.findByCredentials = async (password) => {
-  const career = await UserCareer.findOne({ password })
-
-  if(!career) {
-    throw new Error('Password not found!');
-  }
-
-  const isMatch = await bcrypt.compare(password, career.password);
-
-  if(!isMatch) {
-    throw new Error('ERROR');
-  }
-
-  return career;
-
-}
 
 // hashing before saving to DB
 
