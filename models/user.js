@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 import validator from 'validator';
 const Schema = mongoose.Schema;
 
@@ -35,6 +36,17 @@ const userSchema = new Schema({
 
 });
 
+// Hash the plain text password before saving
+userSchema.pre('save', async function (next) {
+  
+
+    if (this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password, 8)
+    }
+
+    next()
+})
+
 
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
@@ -52,18 +64,9 @@ userSchema.statics.findByCredentials = async (email, password) => {
     return user
 }
 
-// Hash the plain text password before saving
-userSchema.pre('save', async function (next) {
-    const user = this
-
-    if (user.isModified('password')) {
-        user.password = await bcrypt.hash(user.password, 8)
-    }
-
-    next()
-})
 
 
 
-const UserModel = mongoose.model("User", userSchema);
-export { UserModel, userSchema };
+
+const User = mongoose.model("User", userSchema);
+export { User, userSchema };
