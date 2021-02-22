@@ -9,6 +9,7 @@ import userDocumentRoutes from './routes/userDocumentRouter.js'
 import userEducationRoutes from './routes/userEducationRouter.js'
 import userFinanceRoutes from './routes/userFinanceRouter.js'
 import userMedicalRoutes from './routes/userMedicalRouter.js'
+import userRouter from './routes/userRouter.js'
 import dotenv from 'dotenv'
 
 // express
@@ -32,6 +33,7 @@ app.use(userDocumentRoutes);
 app.use(userEducationRoutes);
 app.use(userFinanceRoutes);
 app.use(userMedicalRoutes);
+app.use(userRouter);
 // app.use('/user', userRouter);
 
 
