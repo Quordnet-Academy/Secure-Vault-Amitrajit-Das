@@ -2,7 +2,7 @@ import { User } from '../models/user.js';
 
 
 
-export const getUser = async (req, res) => {
+export const userSignup = async (req, res) => {
 
     const user = new User(req.body);
 
@@ -15,7 +15,7 @@ export const getUser = async (req, res) => {
 };
 
 
-export const postUser = async (req, res) => {
+export const userLogin = async (req, res) => {
 
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
