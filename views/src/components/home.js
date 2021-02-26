@@ -1,6 +1,5 @@
 import '../styles/home.css';
 import '../App.css';
-import Button from '@material-ui/core/Button';
 
 
 
@@ -18,7 +17,7 @@ const Home = () => {
 
             
 
-            <div className="navbar">
+            <nav>
             <ul>
             <div><a className="logo" href="/"></a></div>
 
@@ -37,9 +36,9 @@ const Home = () => {
 
         </ul>
 
-        <button className="btn" variant="contained" color="primary">Try For Free</button>
+     </nav>
 
-     </div>
+     <button className="btn" variant="contained" color="primary">Try For Free</button>
 
    </div>
 
