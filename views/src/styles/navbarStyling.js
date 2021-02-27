@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import Logo from '../assets/key.svg';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,17 +11,32 @@ export const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    color : "#314e52",
+    color : '#28df99',
+     
   },
 
   navlinks : {
-    textTransform : "none",
     color : "#314e52",
   },
 
   palette: {
     primary: '#0044ff',
   },
+ 
+  buttons : {
+    fontFamily: 'Graduate, cursive',
+    background: '#4a47a3',
+    margin : '10px',
+    width : '100px',
+    height : '60px',
+    color : 'white',
+  },
+
+  logo : {
+    backgroundImage: `url(${Logo})`,   
+    backgroundRepeat: 'no-repeat',
+  }
+
 }));
 
 
