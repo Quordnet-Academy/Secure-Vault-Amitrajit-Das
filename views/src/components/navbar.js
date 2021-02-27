@@ -21,14 +21,11 @@ export default function Nav() {
           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton> */}
-          <Typography variant="h4" className={classes.title}>
+          <Typography variant="h4" className={classes.title} style={{fontFamily: 'Satisfy', fontWeight: 'bold'}}> 
             SV
-          </Typography>
-          <Button className={classes.navlinks} color="inherit">Home</Button>
-          <Button className={classes.navlinks} color="inherit">About</Button>
-          <Button className={classes.navlinks} color="inherit">Contact</Button>
-          <Button className={classes.navlinks} color="inherit">Sign In</Button>
-          <Button className={classes.navlinks} color="inherit">How it works</Button>
+          </Typography >
+          <Button className={classes.buttons}>Signup</Button>
+          <Button className={classes.buttons}>Login</Button>
         </Toolbar>
       </AppBar>
     </div>
