@@ -17,7 +17,7 @@ const Home = () => {
 
             
 
-            <nav>
+            {/* <nav>
             <ul>
             <div><a className="logo" href="/"></a></div>
 
@@ -36,7 +36,7 @@ const Home = () => {
 
         </ul>
 
-     </nav>
+     </nav> */}
 
      <button className="btn" variant="contained" color="primary">Try For Free</button>
 
