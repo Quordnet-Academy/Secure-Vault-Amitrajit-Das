@@ -2,17 +2,17 @@
   background-image: linear-gradient(#e47ff8, #b32cf1);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  width:  203.6vh;
+  height: 91.5vh;
+  width:  203.59vh;
   position: absolute;
 }
 
-nav {
+/* nav {
     margin-top: -76vh;
     display : flex;
     flex-direction: column;
   
-}
+} */
 
 .logo {
     display: flex;
@@ -30,7 +30,7 @@ nav {
     background-repeat: no-repeat;
     width : 60vh;
     height : 60vh;
-    margin-top: 22vh;
+    margin-top: 15vh;
     margin-left : 15vh;
 }
 
@@ -39,7 +39,7 @@ h1.welcome {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     font-size: 42px;
-    margin-top : -55vh;
+    margin-top : -57vh;
     margin-left : 110vh;
     letter-spacing : 5px;
 }
@@ -69,10 +69,10 @@ ul {
   overflow: hidden;
 }
 
-li {
+/* li {
   
 }
-
+ */
 
 
 li a {
@@ -103,7 +103,7 @@ li a {
   width: 250px;
   height : 75px;
   margin-left : 120vh;
-  margin-top: 60vh;
+  margin-top: 10vh;
 }
 
 .btn-signup {
