@@ -1,28 +1,23 @@
-import React from 'react';
+import React, { useState } from "react";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import InputAdornment from "@material-ui/core/InputAdornment";
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
+
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://amitrajit31.github.io/Portfolio-V2/">
-        Amitrajit Das
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,10 +54,19 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    fontFamily: 'Graduate, cursive',
   },
 }));
 
-export default function SignInSide() {
+export default function SignUp() {
+
+const [fname, setfName] = useState("");
+const [lname, setlName] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [confirmPassword, setConfirmPassword] = useState("");
+const [passwordVisibility, setPasswordVisibility] = useState("");
+
   const classes = useStyles();
 
   return (
@@ -86,6 +90,8 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
+                value={fname}
+                onChange={(e) => setfName(e.target.value)}
                 id="firstName"
                 label="First Name"
                 autoFocus
@@ -94,6 +100,8 @@ export default function SignInSide() {
                 variant="outlined"
                 required
                 fullWidth
+                value={lname}
+                onChange={(e) => setlName(e.target.value)}
                 margin="normal"
                 id="lastName"
                 label="Last Name"
@@ -105,6 +113,8 @@ export default function SignInSide() {
               margin="normal"
               required
               fullWidth
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               id="email"
               label="Email Address"
               name="email"
@@ -116,6 +126,8 @@ export default function SignInSide() {
               margin="normal"
               required
               fullWidth
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               name="password"
               label="Password"
               type="password"
@@ -129,11 +141,8 @@ export default function SignInSide() {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Sign Up
             </Button>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
           </form>
         </div>
       </Grid>
