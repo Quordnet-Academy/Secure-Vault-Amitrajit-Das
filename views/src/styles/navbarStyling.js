@@ -27,9 +27,11 @@ export const useStyles = makeStyles((theme) => ({
     fontFamily: 'Graduate, cursive',
     background: '#4a47a3',
     margin : '10px',
+    left : '160vh',
     width : '100px',
     height : '60px',
     color : 'white',
+    opacity : '1',
   },
 
   logo : {

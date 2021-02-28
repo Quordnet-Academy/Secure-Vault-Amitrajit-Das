@@ -85,10 +85,10 @@ li a {
 
 .btn {
 
-  font-family: 'Graduate', cursive; 
+   
   font-weight: bold;
   font-size: 40px; 
-  background-color: #16c79a; 
+  background-color: #4a47a3; 
   color : white;
   border: none;
   padding: 16px 32px;
@@ -106,6 +106,7 @@ li a {
   margin-top: 10vh;
 }
 
+/*
 .btn-signup {
 
   font-family: 'Graduate', cursive;  
@@ -164,7 +165,7 @@ li a {
     opacity: 0.7;
     background-color: #16c79a;
 }
-
+ */
 
 
 
